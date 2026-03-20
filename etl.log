@@ -1,0 +1,9 @@
+root - INFO - Tables created successfully
+root - INFO - Data loaded from CSV. Shape: (1381020, 24)
+root - INFO - Data cleaned and transformed. Shape: (628476, 24)
+root - INFO - Loaded languages with 166 records
+root - INFO - Loaded movies_facts with 628476 records
+root - INFO - Loaded genres with 19 records
+root - INFO - Loaded movie_genres with 763126 records
+root - INFO - Loaded top_movies_popular with 10 records
+root - INFO - Loaded top_movies_revenue with 10 records
