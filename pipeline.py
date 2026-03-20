@@ -104,8 +104,6 @@ if __name__ == "__main__":
     genres_df = get_genres(df)
     print(genres_df)
     
-    #pairs of movie_id and genre for movie_genres table
-    genre_movies_df = get_genre_movie(df)
     
    
     
@@ -127,8 +125,7 @@ if __name__ == "__main__":
     print("Search movie:")
     print(search_movies_by_title(df, "Jurassic Park"))
 
-    genres_movies_df = get_genre_movie(df)
-    genres_df = get_genres(df)
+    genre_movie_df = get_genre_movie(df)
     
     languages_df = get_languages(df).copy()
 
@@ -154,9 +151,8 @@ if __name__ == "__main__":
 
     genres_df = genres_df.rename(columns={"genre": "genre_name"})
 
-    genre_movies_df = genre_movies_df.merge(genres_df, left_on="genres", right_on="genre_name", how="left")
-    genre_movies_df.drop(columns=[ "genre_name"], inplace=True)
-    genre_movies_df = genre_movies_df.rename(columns={"genres": "genre"})
+    genre_movie_df = genre_movie_df.merge(genres_df, left_on="genres", right_on="genre_name", how="left")
+    genre_movie_df.drop(columns=[ "genre_name", "genres"], inplace=True)
 
     # LOAD
     loader = Loader(conn, cur)
@@ -171,7 +167,7 @@ if __name__ == "__main__":
     loader.copy_df_to_table(genres_df, "genres", ["genre_id", "genre_name"])
 
     
-    loader.copy_df_to_table(genre_movies_df, "movie_genres", ["genre", "genre_id", "id"])
+    loader.copy_df_to_table(genre_movie_df, "movie_genres", ["genre_id", "id"])
 
     loader.copy_df_to_table(popular_movies, "top_movies_popular", popular_movies.columns.tolist())
 

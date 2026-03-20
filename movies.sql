@@ -32,7 +32,6 @@ DROP TABLE IF EXISTS movie_genres CASCADE;
 
 CREATE TABLE movie_genres (
     genre_movie_id SERIAL PRIMARY KEY,
-    genre TEXT,
     genre_id INT,
     id BIGINT,
     FOREIGN KEY (id) REFERENCES movies_facts(id),
