@@ -16,7 +16,6 @@ CREATE TABLE movies_facts (
     vote_average FLOAT,
     budget BIGINT,
     revenue BIGINT,
-    language TEXT,
     language_id INT,
     FOREIGN KEY (language_id) REFERENCES languages(language_id)
 );

@@ -147,7 +147,7 @@ if __name__ == "__main__":
     languages_df.rename(columns={"original_language": "language"}, inplace=True)
 
     movies_df = movies_df.merge(languages_df, left_on="original_language", right_on="language", how="left")
-    movies_df = movies_df.drop(columns=["original_language"])
+    movies_df = movies_df.drop(columns=["original_language", "language"])
 
     genres_df = genres_df.rename(columns={"genre": "genre_name"})
 
@@ -213,7 +213,7 @@ if __name__ == "__main__":
             mf.title,
             g.genre_name,
             mf.release_date,
-            mf.language,
+            l.language,
             mf.popularity,
             mf.vote_count,
             mf.vote_average
@@ -222,9 +222,11 @@ if __name__ == "__main__":
             ON mf.id = mg.id
         JOIN genres g
             ON mg.genre_id = g.genre_id
+        JOIN languages l
+            ON mf.language_id = l.language_id
         WHERE g.genre_name = %s
         AND mf.release_date BETWEEN %s AND %s
-        AND mf.language = %s
+        AND l.language = %s
         ORDER BY mf.popularity DESC
         LIMIT 10
     """, (genre, start_date, end_date, language))
