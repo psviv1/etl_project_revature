@@ -107,9 +107,7 @@ if __name__ == "__main__":
     #pairs of movie_id and genre for movie_genres table
     genre_movies_df = get_genre_movie(df)
     
-    # print("All tags:")
-    # tags_df = get_tags(df)
-    # print(tags_df)
+   
     
 
     print("Top 10 popular movies:")
@@ -131,11 +129,6 @@ if __name__ == "__main__":
 
     genres_movies_df = get_genre_movie(df)
     genres_df = get_genres(df)
-
-    # tags_df = get_tags(df)
-    # tag_movie_df = get_tag_movie_pairs(df)
-    # tag_movie_df = tag_movie_df.rename(columns={"keywords": "tag"})
-    # tag_movie_df['tag'] = tag_movie_df['tag'].str.strip()
     
     languages_df = get_languages(df).copy()
 
