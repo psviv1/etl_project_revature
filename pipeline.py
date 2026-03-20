@@ -247,7 +247,7 @@ if __name__ == "__main__":
         "popularity",
         "vote_count",
         "vote_average"])
-    plot_top_movies(popular_movies_df, x_col="popularity", y_col="title", title=f"Top 10 Popular Movies for Genre: {genre}", xlabel="Popularity", output_file=f"top_popular_movies_{genre}.png")
+    plot_top_movies(popular_movies_df, x_col="popularity", y_col="title", title=f"Top 10 Popular Movies for Genre: {genre} released from {start_date} to {end_date}", xlabel="Popularity", output_file=f"top_popular_movies_{genre}.png")
 
 
     #show most liked movies for each genre
